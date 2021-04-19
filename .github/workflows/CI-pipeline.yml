@@ -26,6 +26,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    # Go to the scrips' folder
+    - run: cd ./Deployment/AzureSpringCloudInfra/
+
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
