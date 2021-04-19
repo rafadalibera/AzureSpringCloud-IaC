@@ -8,7 +8,7 @@ provider "azurerm" {
 
 terraform {
  backend "azurerm" {
-   resoruce_group_name  = "rg-rbd-terraform-deploy"
+   resource_group_name  = "rg-rbd-terraform-deploy"
    storage_account_name = "strbdterraformdeploy"
    container_name       = "tfstate"
    key                  = "terraform.tfstate"
