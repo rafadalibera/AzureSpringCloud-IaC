@@ -1,15 +1,15 @@
 variable "environment" {
-  default = "dev"
+  default     = "dev"
   description = "Variable tha defiles the target environment"
 }
 
 variable "location" {
-  default = "eastus"
+  default     = "eastus"
   description = "Variable tha defiles the target location"
 }
 
 variable "solution_name" {
-  default = "rbstest"
+  default     = "rbstest"
   description = "Variable tha defiles the solution name"
 }
 

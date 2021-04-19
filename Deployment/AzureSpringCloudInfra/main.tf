@@ -2,11 +2,11 @@ terraform {
   required_version = ">=0.13"
 
   backend "azurerm" {
-   resource_group_name  = "rg-rbd-terraform-deploy"
-   storage_account_name = "strbdterraformdeploy"
-   container_name       = "tfstate"
-   key                  = "terraform.tfstate"
- }
+    resource_group_name  = "rg-rbd-terraform-deploy"
+    storage_account_name = "strbdterraformdeploy"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
@@ -14,7 +14,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "random_string" "random"{
+resource "random_string" "random" {
   length  = 4
   special = false
   lower   = false

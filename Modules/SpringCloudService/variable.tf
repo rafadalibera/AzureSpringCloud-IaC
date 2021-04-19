@@ -12,7 +12,7 @@ variable "location" {
 
 variable "sku_name" {
   description = "Specifies the SKU Name for this Spring Cloud Service."
-  default = "S0"
+  default     = "S0"
 }
 
 #Network
@@ -41,15 +41,15 @@ variable "sku_name" {
 
 variable "timeout_create" {
   description = "Used when creating the Spring Cloud Application."
-  default = "60m"
-} 
+  default     = "60m"
+}
 variable "timeout_delete" {
   description = "Used when deleting the Spring Cloud Application."
-  default = "2h"
+  default     = "2h"
 }
 
 #Trace
 
 variable "instrumentation_key" {
-    description = "The Instrumentation Key used for Application Insights."
+  description = "The Instrumentation Key used for Application Insights."
 }
