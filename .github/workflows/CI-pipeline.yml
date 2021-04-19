@@ -9,7 +9,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    #environment: production
+    environment: production
 
     env:
       ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
@@ -19,6 +19,7 @@ jobs:
 
     defaults:
       run:
+        working-directory: "./Deployment/AzureSpringCloudInfra/"
         shell: bash
     
     steps:
@@ -33,9 +34,9 @@ jobs:
       #  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Go to the scrips' folder
-    - run: |
-        cd /home/runner/work/AzureSpringCloud-IaC/AzureSpringCloud-IaC/Deployment/AzureSpringCloudInfra/
-        ls
+    #- run: |
+    #    cd /home/runner/work/AzureSpringCloud-IaC/AzureSpringCloud-IaC/Deployment/AzureSpringCloudInfra/
+    #    ls
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Initialize
