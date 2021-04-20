@@ -1,6 +1,7 @@
 output "instrumentation_key" {
   description = "The Instrumentation Key for this Application Insights component."
   value       = azurerm_application_insights.appi.instrumentation_key
+  sensitive = true
 }
 
 output "app_id" {
