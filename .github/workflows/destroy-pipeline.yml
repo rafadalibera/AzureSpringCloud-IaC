@@ -1,0 +1,42 @@
+name: Destroy - Pipeline
+
+on:
+  workflow_dispatch
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
+      ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+      ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+      ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+
+    defaults:
+      run:
+        working-directory: "./Deployment/AzureSpringCloudInfra/"
+        shell: bash
+    
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Install the latest version of Terraform CLI
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Initialize
+      run: terraform init
+
+    # Generates an execution plan for Terraform
+    - name: Terraform Plan
+      run: terraform plan
+
+      # On push to main, build or change infrastructure according to Terraform configuration files
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve
